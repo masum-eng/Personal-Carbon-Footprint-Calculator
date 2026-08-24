@@ -7,20 +7,26 @@ def main():
     print("I will ask you some questions one by one.")
     print("After you answer everything, I will calculate and give tips automatically.\n")
 
+while True:
+    calc = CarbonCalculator()
+    collect_data(calc)
+    calculate_and_show(calc)
+    
+    print("\nDo you want to calculate again?")
+    
     while True:
-        calc = CarbonCalculator()
-        collect_data(calc)
-        calculate_and_show(calc)
-
-        print("\nDo you want to calculate again?")
         again = input("Type 'yes' to continue or 'no' to exit: ").lower().strip()
-
-        if again != "yes" and again != "y":
-            print ("\nThank you for using this calculator!")
+        
+        if again == "yes":
+            break   
+        elif again == "no":
+            print("\nThank you for using this calculator!")
             print("Every small action counts for Climate Action (SDG 13).")
             print("Goodbye!")
-            break
-
+            exit()  
+        else:
+            print("Please type only 'yes' or 'no'.")
+ 
 
 if __name__ == "__main__":
     main()
